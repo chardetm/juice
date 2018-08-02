@@ -1,0 +1,7 @@
+---
+- name: Scaffolding rolling
+  hosts: all
+  serial: 1
+  roles:
+    - { role: scaffolding,
+        tags: scaffolding }

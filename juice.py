@@ -147,7 +147,8 @@ executions
     }
     # use deploy of each role
     extra_vars.update({"enos_action": "deploy"})
-    run_ansible('scaffolding.yml', extra_vars=extra_vars)
+#   run_ansible('scaffolding.yml', extra_vars=extra_vars)
+    run_ansible('scaffolding_rolling.yml', extra_vars=extra_vars)
     env["tasks_ran"].append('prepare')
 
 
