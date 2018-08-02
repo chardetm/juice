@@ -1,0 +1,50 @@
+g5k:
+  # reservation: "2018-03-12 19:00:01"
+  walltime: "00:30:00"
+  dhcp: true
+  job_name: juice-tests-maverick
+  env_name: debian9-x64-nfs
+  resources:
+    machines:
+      - roles:
+          - chrony
+          - database
+          - sysbench
+          - openstack
+          - rally
+        cluster: ecotype
+        nodes: 3
+        primary_network: n1
+        secondary_networks: [n2]
+      - roles:
+          - control
+          - registry
+        cluster: ecotype
+        nodes: 1
+        primary_network: n1
+        secondary_networks: []
+    networks:
+      - id: n1
+        roles:
+          - control_network
+        type: prod
+        site: nantes
+      - id: n2
+        roles:
+          - database_network
+        type: kavlan
+        site: nantes
+
+enable_monitoring: false
+
+registry:
+  type: internal
+  ceph: True
+  ceph_id: discovery
+  ceph_keyring: /home/discovery/.ceph/ceph.client.discovery.keyring
+  ceph_mon_host: 
+    - ceph0.rennes.grid5000.fr
+    - ceph1.rennes.grid5000.fr
+    - ceph2.rennes.grid5000.fr
+  ceph_rbd: discovery_kolla_registry/datas
+

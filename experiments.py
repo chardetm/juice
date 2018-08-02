@@ -10,19 +10,19 @@ from execo_engine.sweep import (ParamSweeper, sweep)
 
 SWEEPER_DIR = os.path.join(os.getenv('HOME'), 'juice-sweeper')
 
-JOB_NAME = 'juice-tests-mercredi'
+JOB_NAME = 'juice-tests-maverick'
 # WALLTIME = '08:18:00'
 # WALLTIME = '44:55:00'
-WALLTIME = '13:59:58'
+WALLTIME = '00:30:00'
 RESERVATION = None
 # RESERVATION = '2018-03-21 01:15:00'
 
-# DATABASES = ['cockroachdb']
-DATABASES = ['mariadb', 'cockroachdb']
-CLUSTER_SIZES = [45]
+DATABASES = ['mariadb']
+# DATABASES = ['mariadb', 'cockroachdb']
+CLUSTER_SIZES = [3]
 # CLUSTER_SIZES = [3, 25, 45, 100]
-DELAYS = [0, 50, 150]
-# DELAYS = [0]
+# DELAYS = [0, 50, 150]
+DELAYS = [0]
 
 CLUSTER = 'ecotype'
 SITE = 'nantes'
@@ -99,7 +99,7 @@ def init():
     j.g5k(config=CONF)
     j.inventory()
     j.destroy()
-    j.emulate(CONF['tc'])
+#   j.emulate(CONF['tc'])
   except Exception as e:
     logging.error(
         "Setup goes wrong. This is not necessarily a bad news, "
@@ -110,7 +110,7 @@ def init():
 def teardown():
   try:
     j.destroy()
-    j.emulate(CONF['tc'])
+#   j.emulate(CONF['tc'])
   except Exception as e:
     logging.warning(
         "Setup went wrong. This is not necessarily a bad news, "
@@ -143,9 +143,9 @@ def keystone_exp():
             # Let's get it started hun!
             j.deploy(conf, db, xp_name)
             j.openstack(db)
-            j.emulate(conf['tc'])
-            j.rally(SCENARIOS, "keystone", burst=False)
-            j.backup()
+ #          j.emulate(conf['tc'])
+ #          j.rally(SCENARIOS, "keystone", burst=False)
+ #          j.backup()
 
             # Everything works well, mark combination as done
             sweeper.done(combination)
