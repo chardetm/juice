@@ -1,14 +1,12 @@
 ---
 - name: Common configuration
   hosts: all
-  serial: 1
   roles:
     - { role: common,
         tags: common }
 
 - name: Deploy the grafana
   hosts: control
-  serial: 1
   roles:
     - { role: grafana,
         tags: grafana,
@@ -16,21 +14,18 @@
 
 - name: Install registry
   hosts: all
-  serial: 1
   roles :
     - { role: registry,
         tags: registry }
 
 - name: Apply role chrony
   hosts: all
-  serial: 1
   roles:
     - { role: chrony,
         tags: chrony }
 
 - name: Deploy influxdb
   hosts: control
-  serial: 1
   roles:
     - { role: influxdb,
         tags: influxdb,
@@ -38,7 +33,6 @@
 
 - name: Deploy the grafana
   hosts: control
-  serial: 1
   roles:
     - { role: grafana,
         tags: grafana,
@@ -46,7 +40,6 @@
 
 - name: MariaDB deployment
   hosts: database[0]
-  serial: 1
   roles:
     - { role: database,
         tags: mariadb,
@@ -54,7 +47,6 @@
 
 - name: "{{ db }} deployment (Non Mariadb)"
   hosts: database
-  serial: 1
   roles:
    - { role: database,
        tags: "{{ db }}",
@@ -62,7 +54,6 @@
 
 - name: Install monitoring agents
   hosts: database
-  serial: 1
   roles:
     - { role: cadvisor,
         tags: cadvisor,
@@ -73,7 +64,6 @@
 
 - name: Sysbench deployment
   hosts: database
-  serial: 1
   roles:
     - { role: sysbench,
         tags: sysbench }
