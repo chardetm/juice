@@ -1,15 +1,22 @@
 ---
-- name: Installing dependencies
+- name: Installing Python dependencies
   apt:
     name: "{{ item }}"
     state: present
     update_cache: yes
   with_items:
     - python-setuptools
-    - libpq-dev
     # python-mysql for collectd
     - python-mysqldb
     - python-pip
+
+- name: Installing libpq
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - libpq-dev
 
 - name: Install some python bindings
   pip:
