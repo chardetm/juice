@@ -1,0 +1,755 @@
+(venv) mchardet@fnantes:~/juice$ ./juice.py deploy
+INFO:enoslib.task:Generate results directory /home/mchardet/juice/enos_2018-08-24T14:28:18.887323
+INFO:enoslib.task:Symlink /home/mchardet/juice/enos_2018-08-24T14:28:18.887323 to current
+INFO:enoslib.task:- Task g5k started -
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "GET /3.0/ HTTP/1.1" 200 272
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "GET /3.0/ HTTP/1.1" 200 272
+2018-08-24 14:28:20,996 INFO: Oargridjob 63003 found !
+INFO:execo:Oargridjob 63003 found !
+INFO:enoslib.infra.enos_g5k.utils:Waiting for oargridjob 63003 to start
+DEBUG:enoslib.infra.enos_g5k.utils:No subnet information found for this job
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "GET /3.0/sites/nantes HTTP/1.1" 200 709
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "GET /3.0/sites/nantes HTTP/1.1" 200 709
+INFO:enoslib.infra.enos_g5k.utils:Deploying ['ecotype-22.nantes.grid5000.fr', 'ecotype-23.nantes.grid5000.fr', 'ecotype-24.nantes.grid5000.fr', 'ecotype-25.nantes.grid5000.fr'] with options {'env_name': 'debian9-x64-nfs'}
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "GET /3.0/sites/nantes/clusters/ecotype/nodes HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "GET /3.0/sites/nantes/clusters/ecotype/nodes HTTP/1.1" 200 12040
+INFO:enoslib.infra.enos_g5k.utils:Put eth1, eno2 in vlan id 4 for nodes [Host('ecotype-22.nantes.grid5000.fr'), Host('ecotype-23.nantes.grid5000.fr'), Host('ecotype-24.nantes.grid5000.fr')]
+2018-08-24 14:28:27,461 INFO: Setting [u'ecotype-22-eth1.nantes.grid5000.fr', u'ecotype-23-eth1.nantes.grid5000.fr', u'ecotype-24-eth1.nantes.grid5000.fr'] in vlan 4 of site nantes
+INFO:execo:Setting [u'ecotype-22-eth1.nantes.grid5000.fr', u'ecotype-23-eth1.nantes.grid5000.fr', u'ecotype-24-eth1.nantes.grid5000.fr'] in vlan 4 of site nantes
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "POST /3.0/sites/nantes/vlans/4 HTTP/1.1" 200 127
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "GET /3.0/sites/nantes/clusters/ecotype/nodes HTTP/1.1" 200 12040
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.grid5000.fr
+DEBUG:urllib3.connectionpool:https://api.grid5000.fr:443 "GET /3.0/sites/nantes/clusters/ecotype/nodes HTTP/1.1" 200 12040
+DEBUG:enoslib.infra.enos_g5k.remote:Running ip link set eno1 up;ip link set eno2 up ; dhclient eno1 eno2 on ['ecotype-23.nantes.grid5000.fr', 'ecotype-24.nantes.grid5000.fr', 'ecotype-22.nantes.grid5000.fr'] 
+DEBUG:enoslib.infra.enos_g5k.remote:Running ip link set eno1 up ; dhclient eno1 on ['ecotype-25.nantes.grid5000.fr'] 
+DEBUG:enoslib.infra.enos_g5k.provider:{'control': [Host(ecotype-25.nantes.grid5000.fr, address=ecotype-25.nantes.grid5000.fr)], 'database': [Host(ecotype-23.nantes.grid5000.fr, address=ecotype-23.nantes.grid5000.fr), Host(ecotype-24.nantes.grid5000.fr, address=ecotype-24.nantes.grid5000.fr), Host(ecotype-22.nantes.grid5000.fr, address=ecotype-22.nantes.grid5000.fr)], 'chrony': [Host(ecotype-23.nantes.grid5000.fr, address=ecotype-23.nantes.grid5000.fr), Host(ecotype-24.nantes.grid5000.fr, address=ecotype-24.nantes.grid5000.fr), Host(ecotype-22.nantes.grid5000.fr, address=ecotype-22.nantes.grid5000.fr)], 'registry': [Host(ecotype-25.nantes.grid5000.fr, address=ecotype-25.nantes.grid5000.fr)], 'rally': [Host(ecotype-23.nantes.grid5000.fr, address=ecotype-23.nantes.grid5000.fr), Host(ecotype-24.nantes.grid5000.fr, address=ecotype-24.nantes.grid5000.fr), Host(ecotype-22.nantes.grid5000.fr, address=ecotype-22.nantes.grid5000.fr)], 'openstack': [Host(ecotype-23.nantes.grid5000.fr, address=ecotype-23.nantes.grid5000.fr), Host(ecotype-24.nantes.grid5000.fr, address=ecotype-24.nantes.grid5000.fr), Host(ecotype-22.nantes.grid5000.fr, address=ecotype-22.nantes.grid5000.fr)], 'sysbench': [Host(ecotype-23.nantes.grid5000.fr, address=ecotype-23.nantes.grid5000.fr), Host(ecotype-24.nantes.grid5000.fr, address=ecotype-24.nantes.grid5000.fr), Host(ecotype-22.nantes.grid5000.fr, address=ecotype-22.nantes.grid5000.fr)]}
+DEBUG:enoslib.infra.enos_g5k.provider:[{'roles': ['control_network'], 'cidr': '172.16.192.0/20', 'gateway': '172.16.207.254', 'dns': '131.254.203.235'}, {'start': '10.44.26.0', 'end': '10.44.61.255', 'dns': '131.254.203.235', 'roles': ['database_network'], 'cidr': '10.44.0.0/18', 'gateway': '10.44.63.254'}]
+INFO:enoslib.task:- Task g5k finished -
+INFO:root:Wait 30 seconds for eth to be ready...
+DEBUG:enoslib.task:Loaded environment current/env
+INFO:enoslib.task:- Task inventory started -
+INFO:enoslib.api:Running playbook /home/mchardet/juice/venv/lib/python2.7/site-packages/enoslib/ansible/utils.yml with vars:
+{'enos_action': 'ping'}
+
+PLAY [Utils functions] *************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************
+Friday 24 August 2018  14:29:02 +0200 (0:00:00.531)       0:00:00.531 ********* 
+ok: [ecotype-24.nantes.grid5000.fr]
+ok: [ecotype-25.nantes.grid5000.fr]
+ok: [ecotype-22.nantes.grid5000.fr]
+ok: [ecotype-23.nantes.grid5000.fr]
+
+TASK [utils : include] *************************************************************************************
+Friday 24 August 2018  14:29:04 +0200 (0:00:01.767)       0:00:02.298 ********* 
+included: /home/mchardet/juice/venv/lib/python2.7/site-packages/enoslib/ansible/roles/utils/tasks/ping.yml for ecotype-23.nantes.grid5000.fr, ecotype-24.nantes.grid5000.fr, ecotype-22.nantes.grid5000.fr, ecotype-25.nantes.grid5000.fr                                                                                           
+
+TASK [utils : ping] ****************************************************************************************
+Friday 24 August 2018  14:29:04 +0200 (0:00:00.332)       0:00:02.630 ********* 
+ok: [ecotype-23.nantes.grid5000.fr]
+ok: [ecotype-24.nantes.grid5000.fr]
+ok: [ecotype-22.nantes.grid5000.fr]
+ok: [ecotype-25.nantes.grid5000.fr]
+
+PLAY RECAP *************************************************************************************************
+ecotype-22.nantes.grid5000.fr : ok=3    changed=0    unreachable=0    failed=0   
+ecotype-23.nantes.grid5000.fr : ok=3    changed=0    unreachable=0    failed=0   
+ecotype-24.nantes.grid5000.fr : ok=3    changed=0    unreachable=0    failed=0   
+ecotype-25.nantes.grid5000.fr : ok=3    changed=0    unreachable=0    failed=0   
+
+Friday 24 August 2018  14:29:05 +0200 (0:00:00.884)       0:00:03.515 ********* 
+=============================================================================== 
+Gathering Facts ------------------------------------------------------------------------------------- 1.77s
+utils : ping ---------------------------------------------------------------------------------------- 0.88s
+utils : include ------------------------------------------------------------------------------------- 0.33s
+{'code': 0, 'result': [{u'ecotype-23.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 0, 'ok': 3, 'changed': 0, 'failures': 0}}, {u'ecotype-24.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 0, 'ok': 3, 'changed': 0, 'failures': 0}}, {u'ecotype-25.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 0, 'ok': 3, 'changed': 0, 'failures': 0}}, {u'ecotype-22.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 0, 'ok': 3, 'changed': 0, 'failures': 0}}], 'playbook': '/home/mchardet/juice/venv/lib/python2.7/site-packages/enoslib/ansible/utils.yml'}
+INFO:enoslib.api:Running playbook /home/mchardet/juice/venv/lib/python2.7/site-packages/enoslib/ansible/utils.yml with vars:
+{'facts_file': '/home/mchardet/juice/enos_2018-08-24T14:28:18.887323/_tmp_enos_/facts.yml', 'fake_interfaces': [], 'enos_action': 'check_network'}
+
+PLAY [Utils functions] *************************************************************************************
+
+TASK [utils : include] *************************************************************************************
+Friday 24 August 2018  14:29:05 +0200 (0:00:00.141)       0:00:03.657 ********* 
+included: /home/mchardet/juice/venv/lib/python2.7/site-packages/enoslib/ansible/roles/utils/tasks/check_network.yml for ecotype-23.nantes.grid5000.fr, ecotype-24.nantes.grid5000.fr, ecotype-22.nantes.grid5000.fr, ecotype-25.nantes.grid5000.fr                                                                                  
+
+TASK [utils : Dump network information in a file] **********************************************************
+Friday 24 August 2018  14:29:06 +0200 (0:00:00.690)       0:00:04.347 ********* 
+changed: [ecotype-23.nantes.grid5000.fr -> localhost]
+
+TASK [utils : Create the fake interfaces] ******************************************************************
+Friday 24 August 2018  14:29:08 +0200 (0:00:01.895)       0:00:06.243 ********* 
+
+PLAY RECAP *************************************************************************************************
+ecotype-22.nantes.grid5000.fr : ok=1    changed=0    unreachable=0    failed=0   
+ecotype-23.nantes.grid5000.fr : ok=2    changed=1    unreachable=0    failed=0   
+ecotype-24.nantes.grid5000.fr : ok=1    changed=0    unreachable=0    failed=0   
+ecotype-25.nantes.grid5000.fr : ok=1    changed=0    unreachable=0    failed=0   
+
+Friday 24 August 2018  14:29:08 +0200 (0:00:00.238)       0:00:06.481 ********* 
+=============================================================================== 
+utils : Dump network information in a file ---------------------------------------------------------- 1.90s
+utils : include ------------------------------------------------------------------------------------- 0.69s
+utils : Create the fake interfaces ------------------------------------------------------------------ 0.24s
+{'code': 0, 'result': [{u'ecotype-23.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 1, 'ok': 2, 'changed': 1, 'failures': 0}}, {u'ecotype-24.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 1, 'ok': 1, 'changed': 0, 'failures': 0}}, {u'ecotype-25.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 1, 'ok': 1, 'changed': 0, 'failures': 0}}, {u'ecotype-22.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 1, 'ok': 1, 'changed': 0, 'failures': 0}}], 'playbook': '/home/mchardet/juice/venv/lib/python2.7/site-packages/enoslib/ansible/utils.yml'}
+INFO:enoslib.task:- Task inventory finished -
+DEBUG:enoslib.task:Loaded environment current/env
+INFO:enoslib.task:- Task prepare started -
+DEBUG:enoslib.task:Loaded environment current/env
+INFO:enoslib.task:- Task run_ansible started -
+INFO:enoslib.api:Running playbook /home/mchardet/juice/ansible/scaffolding.yml with vars:
+{'enos_action': 'deploy', 'db': 'mariadb', 'registry': {'ceph': True, 'ceph_keyring': '/home/discovery/.ceph/ceph.client.discovery.keyring', 'ceph_id': 'discovery', 'ceph_mon_host': ['ceph0.rennes.grid5000.fr', 'ceph1.rennes.grid5000.fr', 'ceph2.rennes.grid5000.fr'], 'type': 'internal', 'ceph_rbd': 'discovery_kolla_registry/datas'}, 'enable_monitoring': False}
+
+PLAY [Common configuration] ********************************************************************************
+
+TASK [common : include] ************************************************************************************
+Friday 24 August 2018  14:29:09 +0200 (0:00:01.705)       0:00:08.187 ********* 
+included: /home/mchardet/juice/ansible/roles/common/tasks/deploy.yml for ecotype-23.nantes.grid5000.fr
+
+TASK [common : Installing dependencies] ********************************************************************
+Friday 24 August 2018  14:29:10 +0200 (0:00:00.111)       0:00:08.299 ********* 
+changed: [ecotype-23.nantes.grid5000.fr] => (item=[u'python-setuptools', u'libpq-dev', u'python-mysqldb', u'python-pip'])                                                                                               
+
+TASK [common : Install some python bindings] ***************************************************************
+Friday 24 August 2018  14:29:35 +0200 (0:00:25.102)       0:00:33.401 ********* 
+changed: [ecotype-23.nantes.grid5000.fr] => (item=docker==2.7.0)
+changed: [ecotype-23.nantes.grid5000.fr] => (item=influxdb)
+changed: [ecotype-23.nantes.grid5000.fr] => (item=psycopg2)
+changed: [ecotype-23.nantes.grid5000.fr] => (item=flent)
+
+TASK [common : Mount /run] *********************************************************************************
+Friday 24 August 2018  14:29:52 +0200 (0:00:17.549)       0:00:50.951 ********* 
+ [WARNING]: Consider using the mount module rather than running mount.  If you need to use command because
+mount is insufficient you can add warn=False to this command task or set command_warnings=False in
+ansible.cfg to get rid of this message.
+
+changed: [ecotype-23.nantes.grid5000.fr]
+
+PLAY [Common configuration] ********************************************************************************
+
+TASK [common : include] ************************************************************************************
+Friday 24 August 2018  14:29:53 +0200 (0:00:00.919)       0:00:51.871 ********* 
+included: /home/mchardet/juice/ansible/roles/common/tasks/deploy.yml for ecotype-24.nantes.grid5000.fr
+
+TASK [common : Installing dependencies] ********************************************************************
+Friday 24 August 2018  14:29:53 +0200 (0:00:00.100)       0:00:51.972 ********* 
+changed: [ecotype-24.nantes.grid5000.fr] => (item=[u'python-setuptools', u'libpq-dev', u'python-mysqldb', u'python-pip'])                                                                                               
+
+TASK [common : Install some python bindings] ***************************************************************
+Friday 24 August 2018  14:30:18 +0200 (0:00:24.471)       0:01:16.444 ********* 
+changed: [ecotype-24.nantes.grid5000.fr] => (item=docker==2.7.0)
+changed: [ecotype-24.nantes.grid5000.fr] => (item=influxdb)
+changed: [ecotype-24.nantes.grid5000.fr] => (item=psycopg2)
+changed: [ecotype-24.nantes.grid5000.fr] => (item=flent)
+
+TASK [common : Mount /run] *********************************************************************************
+Friday 24 August 2018  14:30:34 +0200 (0:00:16.080)       0:01:32.524 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+PLAY [Common configuration] ********************************************************************************
+
+TASK [common : include] ************************************************************************************
+Friday 24 August 2018  14:30:34 +0200 (0:00:00.610)       0:01:33.135 ********* 
+included: /home/mchardet/juice/ansible/roles/common/tasks/deploy.yml for ecotype-22.nantes.grid5000.fr
+
+TASK [common : Installing dependencies] ********************************************************************
+Friday 24 August 2018  14:30:35 +0200 (0:00:00.096)       0:01:33.232 ********* 
+changed: [ecotype-22.nantes.grid5000.fr] => (item=[u'python-setuptools', u'libpq-dev', u'python-mysqldb', u'python-pip'])                                                                                               
+
+TASK [common : Install some python bindings] ***************************************************************
+Friday 24 August 2018  14:31:01 +0200 (0:00:26.309)       0:01:59.541 ********* 
+changed: [ecotype-22.nantes.grid5000.fr] => (item=docker==2.7.0)
+changed: [ecotype-22.nantes.grid5000.fr] => (item=influxdb)
+changed: [ecotype-22.nantes.grid5000.fr] => (item=psycopg2)
+changed: [ecotype-22.nantes.grid5000.fr] => (item=flent)
+
+TASK [common : Mount /run] *********************************************************************************
+Friday 24 August 2018  14:31:17 +0200 (0:00:15.879)       0:02:15.421 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+PLAY [Common configuration] ********************************************************************************
+
+TASK [common : include] ************************************************************************************
+Friday 24 August 2018  14:31:17 +0200 (0:00:00.666)       0:02:16.088 ********* 
+included: /home/mchardet/juice/ansible/roles/common/tasks/deploy.yml for ecotype-25.nantes.grid5000.fr
+
+TASK [common : Installing dependencies] ********************************************************************
+Friday 24 August 2018  14:31:17 +0200 (0:00:00.093)       0:02:16.181 ********* 
+changed: [ecotype-25.nantes.grid5000.fr] => (item=[u'python-setuptools', u'libpq-dev', u'python-mysqldb', u'python-pip'])                                                                                               
+
+TASK [common : Install some python bindings] ***************************************************************
+Friday 24 August 2018  14:31:42 +0200 (0:00:24.099)       0:02:40.280 ********* 
+changed: [ecotype-25.nantes.grid5000.fr] => (item=docker==2.7.0)
+changed: [ecotype-25.nantes.grid5000.fr] => (item=influxdb)
+changed: [ecotype-25.nantes.grid5000.fr] => (item=psycopg2)
+changed: [ecotype-25.nantes.grid5000.fr] => (item=flent)
+
+TASK [common : Mount /run] *********************************************************************************
+Friday 24 August 2018  14:31:58 +0200 (0:00:16.214)       0:02:56.495 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+PLAY [Deploy the grafana] **********************************************************************************
+
+TASK [grafana : include] ***********************************************************************************
+Friday 24 August 2018  14:31:58 +0200 (0:00:00.665)       0:02:57.161 ********* 
+skipping: [ecotype-25.nantes.grid5000.fr]
+
+PLAY [Install registry] ************************************************************************************
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:31:59 +0200 (0:00:00.087)       0:02:57.249 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/deploy.yml for ecotype-23.nantes.grid5000.fr
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:31:59 +0200 (0:00:00.148)       0:02:57.397 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/internal/agent.yml for ecotype-23.nantes.grid5000.fr                                                                                                        
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:31:59 +0200 (0:00:00.171)       0:02:57.569 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/install_agent.yml for ecotype-23.nantes.grid5000.fr                                                                                                         
+
+TASK [registry : Installing dependencies] ******************************************************************
+Friday 24 August 2018  14:31:59 +0200 (0:00:00.109)       0:02:57.678 ********* 
+changed: [ecotype-23.nantes.grid5000.fr] => (item=[u'apt-transport-https', u'software-properties-common', u'ca-certificates'])                                                                                          
+
+TASK [registry : Add docker repository key] ****************************************************************
+Friday 24 August 2018  14:32:12 +0200 (0:00:12.734)       0:03:10.413 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [registry : Add docker repository] ********************************************************************
+Friday 24 August 2018  14:32:15 +0200 (0:00:03.547)       0:03:13.960 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [registry : Install docker] ***************************************************************************
+Friday 24 August 2018  14:32:19 +0200 (0:00:03.459)       0:03:17.420 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:32:43 +0200 (0:00:24.000)       0:03:41.420 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/insecure_registry.yml for ecotype-23.nantes.grid5000.fr                                                                                                     
+
+TASK [registry : Allow Docker to use an insecure registry] *************************************************
+Friday 24 August 2018  14:32:43 +0200 (0:00:00.114)       0:03:41.535 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [registry : Restart docker daemon] ********************************************************************
+Friday 24 August 2018  14:32:44 +0200 (0:00:01.277)       0:03:42.813 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:32:46 +0200 (0:00:01.999)       0:03:44.813 ********* 
+skipping: [ecotype-23.nantes.grid5000.fr]
+
+PLAY [Install registry] ************************************************************************************
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:32:46 +0200 (0:00:00.088)       0:03:44.901 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/deploy.yml for ecotype-24.nantes.grid5000.fr
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:32:46 +0200 (0:00:00.107)       0:03:45.008 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/internal/agent.yml for ecotype-24.nantes.grid5000.fr                                                                                                        
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:32:46 +0200 (0:00:00.105)       0:03:45.113 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/install_agent.yml for ecotype-24.nantes.grid5000.fr                                                                                                         
+
+TASK [registry : Installing dependencies] ******************************************************************
+Friday 24 August 2018  14:32:47 +0200 (0:00:00.189)       0:03:45.302 ********* 
+changed: [ecotype-24.nantes.grid5000.fr] => (item=[u'apt-transport-https', u'software-properties-common', u'ca-certificates'])                                                                                          
+
+TASK [registry : Add docker repository key] ****************************************************************
+Friday 24 August 2018  14:32:59 +0200 (0:00:12.701)       0:03:58.004 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+TASK [registry : Add docker repository] ********************************************************************
+Friday 24 August 2018  14:33:02 +0200 (0:00:02.896)       0:04:00.901 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+TASK [registry : Install docker] ***************************************************************************
+Friday 24 August 2018  14:33:05 +0200 (0:00:03.134)       0:04:04.035 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:33:27 +0200 (0:00:22.005)       0:04:26.040 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/insecure_registry.yml for ecotype-24.nantes.grid5000.fr                                                                                                     
+
+TASK [registry : Allow Docker to use an insecure registry] *************************************************
+Friday 24 August 2018  14:33:27 +0200 (0:00:00.101)       0:04:26.142 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+TASK [registry : Restart docker daemon] ********************************************************************
+Friday 24 August 2018  14:33:29 +0200 (0:00:01.143)       0:04:27.285 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:33:30 +0200 (0:00:01.734)       0:04:29.020 ********* 
+skipping: [ecotype-24.nantes.grid5000.fr]
+
+PLAY [Install registry] ************************************************************************************
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:33:30 +0200 (0:00:00.090)       0:04:29.110 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/deploy.yml for ecotype-22.nantes.grid5000.fr
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:33:31 +0200 (0:00:00.104)       0:04:29.214 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/internal/agent.yml for ecotype-22.nantes.grid5000.fr                                                                                                        
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:33:31 +0200 (0:00:00.113)       0:04:29.328 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/install_agent.yml for ecotype-22.nantes.grid5000.fr                                                                                                         
+
+TASK [registry : Installing dependencies] ******************************************************************
+Friday 24 August 2018  14:33:31 +0200 (0:00:00.106)       0:04:29.435 ********* 
+changed: [ecotype-22.nantes.grid5000.fr] => (item=[u'apt-transport-https', u'software-properties-common', u'ca-certificates'])                                                                                          
+
+TASK [registry : Add docker repository key] ****************************************************************
+Friday 24 August 2018  14:33:43 +0200 (0:00:12.413)       0:04:41.848 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+TASK [registry : Add docker repository] ********************************************************************
+Friday 24 August 2018  14:33:46 +0200 (0:00:02.875)       0:04:44.723 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+TASK [registry : Install docker] ***************************************************************************
+Friday 24 August 2018  14:33:49 +0200 (0:00:03.168)       0:04:47.892 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:34:13 +0200 (0:00:24.036)       0:05:11.928 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/insecure_registry.yml for ecotype-22.nantes.grid5000.fr                                                                                                     
+
+TASK [registry : Allow Docker to use an insecure registry] *************************************************
+Friday 24 August 2018  14:34:13 +0200 (0:00:00.100)       0:05:12.028 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+TASK [registry : Restart docker daemon] ********************************************************************
+Friday 24 August 2018  14:34:14 +0200 (0:00:01.113)       0:05:13.142 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:34:16 +0200 (0:00:01.760)       0:05:14.903 ********* 
+skipping: [ecotype-22.nantes.grid5000.fr]
+
+PLAY [Install registry] ************************************************************************************
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:34:16 +0200 (0:00:00.091)       0:05:14.994 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/deploy.yml for ecotype-25.nantes.grid5000.fr
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:34:16 +0200 (0:00:00.105)       0:05:15.099 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/internal/agent.yml for ecotype-25.nantes.grid5000.fr                                                                                                        
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:34:17 +0200 (0:00:00.105)       0:05:15.205 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/install_agent.yml for ecotype-25.nantes.grid5000.fr                                                                                                         
+
+TASK [registry : Installing dependencies] ******************************************************************
+Friday 24 August 2018  14:34:17 +0200 (0:00:00.102)       0:05:15.308 ********* 
+changed: [ecotype-25.nantes.grid5000.fr] => (item=[u'apt-transport-https', u'software-properties-common', u'ca-certificates'])                                                                                          
+
+TASK [registry : Add docker repository key] ****************************************************************
+Friday 24 August 2018  14:34:29 +0200 (0:00:12.306)       0:05:27.614 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Add docker repository] ********************************************************************
+Friday 24 August 2018  14:34:32 +0200 (0:00:02.888)       0:05:30.503 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Install docker] ***************************************************************************
+Friday 24 August 2018  14:34:35 +0200 (0:00:03.244)       0:05:33.747 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:35:00 +0200 (0:00:24.918)       0:05:58.666 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/insecure_registry.yml for ecotype-25.nantes.grid5000.fr                                                                                                     
+
+TASK [registry : Allow Docker to use an insecure registry] *************************************************
+Friday 24 August 2018  14:35:00 +0200 (0:00:00.098)       0:05:58.764 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Restart docker daemon] ********************************************************************
+Friday 24 August 2018  14:35:01 +0200 (0:00:01.247)       0:06:00.011 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:35:03 +0200 (0:00:01.846)       0:06:01.858 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/internal/registry.yml for ecotype-25.nantes.grid5000.fr                                                                                                     
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:35:03 +0200 (0:00:00.166)       0:06:02.025 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/internal/ceph.yml for ecotype-25.nantes.grid5000.fr                                                                                                         
+
+TASK [registry : Install Ceph] *****************************************************************************
+Friday 24 August 2018  14:35:03 +0200 (0:00:00.145)       0:06:02.171 ********* 
+changed: [ecotype-25.nantes.grid5000.fr] => (item=[u'ceph', u'ceph-common'])
+
+TASK [registry : Copy Ceph configuration] ******************************************************************
+Friday 24 August 2018  14:35:24 +0200 (0:00:20.623)       0:06:22.795 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Copy Ceph Keyring] ************************************************************************
+Friday 24 August 2018  14:35:25 +0200 (0:00:01.231)       0:06:24.026 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Add rbd kernel module] ********************************************************************
+Friday 24 August 2018  14:35:26 +0200 (0:00:01.097)       0:06:25.124 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Checking rbd maps] ************************************************************************
+Friday 24 August 2018  14:35:27 +0200 (0:00:00.804)       0:06:25.928 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Add rbd mapping] **************************************************************************
+Friday 24 August 2018  14:35:28 +0200 (0:00:00.626)       0:06:26.555 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Checking rbd maps] ************************************************************************
+Friday 24 August 2018  14:35:29 +0200 (0:00:00.799)       0:06:27.355 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : set_fact] *********************************************************************************
+Friday 24 August 2018  14:35:29 +0200 (0:00:00.717)       0:06:28.072 ********* 
+ok: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Create the registry directory] ************************************************************
+Friday 24 August 2018  14:35:30 +0200 (0:00:00.174)       0:06:28.247 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Mount the Ceph device] ********************************************************************
+Friday 24 August 2018  14:35:30 +0200 (0:00:00.822)       0:06:29.069 ********* 
+changed: [ecotype-25.nantes.grid5000.fr] => (item={'value': {u'snap': u'-', u'device': u'/dev/rbd0', u'name': u'datas', u'pool': u'discovery_kolla_registry'}, 'key': u'0'})                                            
+
+TASK [registry : include] **********************************************************************************
+Friday 24 August 2018  14:35:32 +0200 (0:00:01.185)       0:06:30.255 ********* 
+included: /home/mchardet/juice/ansible/roles/registry/tasks/install_registry.yml for ecotype-25.nantes.grid5000.fr                                                                                                      
+
+TASK [registry : Starting the Docker registry] *************************************************************
+Friday 24 August 2018  14:35:32 +0200 (0:00:00.110)       0:06:30.365 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [registry : Waiting for the registry service to become available] *************************************
+Friday 24 August 2018  14:35:38 +0200 (0:00:06.686)       0:06:37.052 ********* 
+ok: [ecotype-25.nantes.grid5000.fr]
+
+PLAY [Apply role chrony] ***********************************************************************************
+
+TASK [chrony : include] ************************************************************************************
+Friday 24 August 2018  14:35:41 +0200 (0:00:02.955)       0:06:40.007 ********* 
+included: /home/mchardet/juice/ansible/roles/chrony/tasks/deploy.yml for ecotype-23.nantes.grid5000.fr
+
+TASK [chrony : Installing chrony] **************************************************************************
+Friday 24 August 2018  14:35:41 +0200 (0:00:00.153)       0:06:40.161 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [chrony : Configuring chrony] *************************************************************************
+Friday 24 August 2018  14:35:46 +0200 (0:00:04.617)       0:06:44.778 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [chrony : Restart chrony] *****************************************************************************
+Friday 24 August 2018  14:35:47 +0200 (0:00:01.176)       0:06:45.955 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+PLAY [Apply role chrony] ***********************************************************************************
+
+TASK [chrony : include] ************************************************************************************
+Friday 24 August 2018  14:35:48 +0200 (0:00:00.762)       0:06:46.717 ********* 
+included: /home/mchardet/juice/ansible/roles/chrony/tasks/deploy.yml for ecotype-24.nantes.grid5000.fr
+
+TASK [chrony : Installing chrony] **************************************************************************
+Friday 24 August 2018  14:35:48 +0200 (0:00:00.102)       0:06:46.820 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+TASK [chrony : Configuring chrony] *************************************************************************
+Friday 24 August 2018  14:35:53 +0200 (0:00:04.444)       0:06:51.265 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+TASK [chrony : Restart chrony] *****************************************************************************
+Friday 24 August 2018  14:35:54 +0200 (0:00:01.160)       0:06:52.426 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+PLAY [Apply role chrony] ***********************************************************************************
+
+TASK [chrony : include] ************************************************************************************
+Friday 24 August 2018  14:35:55 +0200 (0:00:00.783)       0:06:53.209 ********* 
+included: /home/mchardet/juice/ansible/roles/chrony/tasks/deploy.yml for ecotype-22.nantes.grid5000.fr
+
+TASK [chrony : Installing chrony] **************************************************************************
+Friday 24 August 2018  14:35:55 +0200 (0:00:00.100)       0:06:53.309 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+TASK [chrony : Configuring chrony] *************************************************************************
+Friday 24 August 2018  14:35:59 +0200 (0:00:04.437)       0:06:57.747 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+TASK [chrony : Restart chrony] *****************************************************************************
+Friday 24 August 2018  14:36:00 +0200 (0:00:01.246)       0:06:58.993 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+PLAY [Apply role chrony] ***********************************************************************************
+
+TASK [chrony : include] ************************************************************************************
+Friday 24 August 2018  14:36:01 +0200 (0:00:00.740)       0:06:59.734 ********* 
+included: /home/mchardet/juice/ansible/roles/chrony/tasks/deploy.yml for ecotype-25.nantes.grid5000.fr
+
+TASK [chrony : Installing chrony] **************************************************************************
+Friday 24 August 2018  14:36:01 +0200 (0:00:00.108)       0:06:59.843 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [chrony : Configuring chrony] *************************************************************************
+Friday 24 August 2018  14:36:06 +0200 (0:00:04.530)       0:07:04.374 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+TASK [chrony : Restart chrony] *****************************************************************************
+Friday 24 August 2018  14:36:07 +0200 (0:00:01.180)       0:07:05.554 ********* 
+changed: [ecotype-25.nantes.grid5000.fr]
+
+PLAY [Deploy influxdb] *************************************************************************************
+
+TASK [influxdb : include] **********************************************************************************
+Friday 24 August 2018  14:36:08 +0200 (0:00:00.834)       0:07:06.389 ********* 
+skipping: [ecotype-25.nantes.grid5000.fr]
+
+PLAY [Deploy the grafana] **********************************************************************************
+
+TASK [grafana : include] ***********************************************************************************
+Friday 24 August 2018  14:36:08 +0200 (0:00:00.091)       0:07:06.481 ********* 
+skipping: [ecotype-25.nantes.grid5000.fr]
+
+PLAY [MariaDB deployment] **********************************************************************************
+
+TASK [database : include] **********************************************************************************
+Friday 24 August 2018  14:36:08 +0200 (0:00:00.095)       0:07:06.576 ********* 
+included: /home/mchardet/juice/ansible/roles/database/tasks/mariadb/deploy.yml for ecotype-23.nantes.grid5000.fr                                                                                                        
+
+TASK [database : Mount /database in tmpfs to store MariaDB] ************************************************
+Friday 24 August 2018  14:36:08 +0200 (0:00:00.173)       0:07:06.750 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [database : Start the MariaDB container] **************************************************************
+Friday 24 August 2018  14:36:09 +0200 (0:00:00.755)       0:07:07.506 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [database : Waiting for MariaDB to be ready] **********************************************************
+Friday 24 August 2018  14:36:29 +0200 (0:00:19.806)       0:07:27.312 ********* 
+ok: [ecotype-23.nantes.grid5000.fr]
+
+PLAY [mariadb deployment (Non Mariadb)] ********************************************************************
+
+TASK [database : include] **********************************************************************************
+Friday 24 August 2018  14:36:34 +0200 (0:00:05.825)       0:07:33.138 ********* 
+skipping: [ecotype-23.nantes.grid5000.fr]
+
+PLAY [mariadb deployment (Non Mariadb)] ********************************************************************
+
+TASK [database : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.091)       0:07:33.229 ********* 
+skipping: [ecotype-24.nantes.grid5000.fr]
+
+PLAY [mariadb deployment (Non Mariadb)] ********************************************************************
+
+TASK [database : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.090)       0:07:33.320 ********* 
+skipping: [ecotype-22.nantes.grid5000.fr]
+
+PLAY [Install monitoring agents] ***************************************************************************
+
+TASK [cadvisor : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.093)       0:07:33.413 ********* 
+skipping: [ecotype-23.nantes.grid5000.fr]
+
+TASK [collectd : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.087)       0:07:33.500 ********* 
+skipping: [ecotype-23.nantes.grid5000.fr]
+
+PLAY [Install monitoring agents] ***************************************************************************
+
+TASK [cadvisor : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.175)       0:07:33.675 ********* 
+skipping: [ecotype-24.nantes.grid5000.fr]
+
+TASK [collectd : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.083)       0:07:33.759 ********* 
+skipping: [ecotype-24.nantes.grid5000.fr]
+
+PLAY [Install monitoring agents] ***************************************************************************
+
+TASK [cadvisor : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.089)       0:07:33.848 ********* 
+skipping: [ecotype-22.nantes.grid5000.fr]
+
+TASK [collectd : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.086)       0:07:33.935 ********* 
+skipping: [ecotype-22.nantes.grid5000.fr]
+
+PLAY [Sysbench deployment] *********************************************************************************
+
+TASK [sysbench : include] **********************************************************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.091)       0:07:34.026 ********* 
+included: /home/mchardet/juice/ansible/roles/sysbench/tasks/deploy.yml for ecotype-23.nantes.grid5000.fr
+
+TASK [sysbench : Create the /sysbench directory for storing results] ***************************************
+Friday 24 August 2018  14:36:35 +0200 (0:00:00.116)       0:07:34.142 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [sysbench : include] **********************************************************************************
+Friday 24 August 2018  14:36:36 +0200 (0:00:00.661)       0:07:34.804 ********* 
+included: /home/mchardet/juice/ansible/roles/sysbench/tasks/mariadb/deploy.yml for ecotype-23.nantes.grid5000.fr                                                                                                        
+
+TASK [sysbench : Creating sbtest user for sysbench] ********************************************************
+Friday 24 August 2018  14:36:36 +0200 (0:00:00.180)       0:07:34.984 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+TASK [sysbench : Create MariaDB sbtest database for sysbench] **********************************************
+Friday 24 August 2018  14:36:37 +0200 (0:00:00.905)       0:07:35.890 ********* 
+changed: [ecotype-23.nantes.grid5000.fr]
+
+PLAY [Sysbench deployment] *********************************************************************************
+
+TASK [sysbench : include] **********************************************************************************
+Friday 24 August 2018  14:36:38 +0200 (0:00:00.911)       0:07:36.801 ********* 
+included: /home/mchardet/juice/ansible/roles/sysbench/tasks/deploy.yml for ecotype-24.nantes.grid5000.fr
+
+TASK [sysbench : Create the /sysbench directory for storing results] ***************************************
+Friday 24 August 2018  14:36:38 +0200 (0:00:00.102)       0:07:36.903 ********* 
+changed: [ecotype-24.nantes.grid5000.fr]
+
+TASK [sysbench : include] **********************************************************************************
+Friday 24 August 2018  14:36:39 +0200 (0:00:00.654)       0:07:37.558 ********* 
+skipping: [ecotype-24.nantes.grid5000.fr]
+
+PLAY [Sysbench deployment] *********************************************************************************
+
+TASK [sysbench : include] **********************************************************************************
+Friday 24 August 2018  14:36:39 +0200 (0:00:00.088)       0:07:37.647 ********* 
+included: /home/mchardet/juice/ansible/roles/sysbench/tasks/deploy.yml for ecotype-22.nantes.grid5000.fr
+
+TASK [sysbench : Create the /sysbench directory for storing results] ***************************************
+Friday 24 August 2018  14:36:39 +0200 (0:00:00.104)       0:07:37.751 ********* 
+changed: [ecotype-22.nantes.grid5000.fr]
+
+TASK [sysbench : include] **********************************************************************************
+Friday 24 August 2018  14:36:40 +0200 (0:00:00.634)       0:07:38.386 ********* 
+skipping: [ecotype-22.nantes.grid5000.fr]
+
+PLAY RECAP *************************************************************************************************
+ecotype-22.nantes.grid5000.fr : ok=20   changed=13   unreachable=0    failed=0   
+ecotype-23.nantes.grid5000.fr : ok=27   changed=17   unreachable=0    failed=0   
+ecotype-24.nantes.grid5000.fr : ok=20   changed=13   unreachable=0    failed=0   
+ecotype-25.nantes.grid5000.fr : ok=33   changed=22   unreachable=0    failed=0   
+
+Friday 24 August 2018  14:36:40 +0200 (0:00:00.057)       0:07:38.443 ********* 
+=============================================================================== 
+common : Installing dependencies ------------------------------------------------------------------- 26.31s
+common : Installing dependencies ------------------------------------------------------------------- 25.10s
+registry : Install docker -------------------------------------------------------------------------- 24.92s
+common : Installing dependencies ------------------------------------------------------------------- 24.47s
+common : Installing dependencies ------------------------------------------------------------------- 24.10s
+registry : Install docker -------------------------------------------------------------------------- 24.04s
+registry : Install docker -------------------------------------------------------------------------- 24.00s
+registry : Install docker -------------------------------------------------------------------------- 22.01s
+registry : Install Ceph ---------------------------------------------------------------------------- 20.62s
+database : Start the MariaDB container ------------------------------------------------------------- 19.81s
+common : Install some python bindings -------------------------------------------------------------- 17.55s
+common : Install some python bindings -------------------------------------------------------------- 16.21s
+common : Install some python bindings -------------------------------------------------------------- 16.08s
+common : Install some python bindings -------------------------------------------------------------- 15.88s
+registry : Installing dependencies ----------------------------------------------------------------- 12.74s
+registry : Installing dependencies ----------------------------------------------------------------- 12.70s
+registry : Installing dependencies ----------------------------------------------------------------- 12.41s
+registry : Installing dependencies ----------------------------------------------------------------- 12.31s
+registry : Starting the Docker registry ------------------------------------------------------------- 6.69s
+database : Waiting for MariaDB to be ready ---------------------------------------------------------- 5.83s
+chrony : Installing chrony -------------------------------------------------------------------------- 4.62s
+chrony : Installing chrony -------------------------------------------------------------------------- 4.53s
+chrony : Installing chrony -------------------------------------------------------------------------- 4.45s
+chrony : Installing chrony -------------------------------------------------------------------------- 4.44s
+registry : Add docker repository key ---------------------------------------------------------------- 3.55s
+registry : Add docker repository -------------------------------------------------------------------- 3.46s
+registry : Add docker repository -------------------------------------------------------------------- 3.24s
+registry : Add docker repository -------------------------------------------------------------------- 3.17s
+registry : Add docker repository -------------------------------------------------------------------- 3.13s
+registry : Waiting for the registry service to become available ------------------------------------- 2.96s
+registry : Add docker repository key ---------------------------------------------------------------- 2.90s
+registry : Add docker repository key ---------------------------------------------------------------- 2.89s
+registry : Add docker repository key ---------------------------------------------------------------- 2.88s
+registry : Restart docker daemon -------------------------------------------------------------------- 2.00s
+registry : Restart docker daemon -------------------------------------------------------------------- 1.85s
+registry : Restart docker daemon -------------------------------------------------------------------- 1.76s
+registry : Restart docker daemon -------------------------------------------------------------------- 1.73s
+registry : Allow Docker to use an insecure registry ------------------------------------------------- 1.28s
+registry : Allow Docker to use an insecure registry ------------------------------------------------- 1.25s
+chrony : Configuring chrony ------------------------------------------------------------------------- 1.25s
+registry : Copy Ceph configuration ------------------------------------------------------------------ 1.23s
+registry : Mount the Ceph device -------------------------------------------------------------------- 1.19s
+chrony : Configuring chrony ------------------------------------------------------------------------- 1.18s
+chrony : Configuring chrony ------------------------------------------------------------------------- 1.18s
+chrony : Configuring chrony ------------------------------------------------------------------------- 1.16s
+registry : Allow Docker to use an insecure registry ------------------------------------------------- 1.14s
+registry : Allow Docker to use an insecure registry ------------------------------------------------- 1.11s
+registry : Copy Ceph Keyring ------------------------------------------------------------------------ 1.10s
+common : Mount /run --------------------------------------------------------------------------------- 0.92s
+sysbench : Create MariaDB sbtest database for sysbench ---------------------------------------------- 0.91s
+sysbench : Creating sbtest user for sysbench -------------------------------------------------------- 0.91s
+chrony : Restart chrony ----------------------------------------------------------------------------- 0.83s
+registry : Create the registry directory ------------------------------------------------------------ 0.82s
+registry : Add rbd kernel module -------------------------------------------------------------------- 0.80s
+registry : Add rbd mapping -------------------------------------------------------------------------- 0.80s
+chrony : Restart chrony ----------------------------------------------------------------------------- 0.78s
+chrony : Restart chrony ----------------------------------------------------------------------------- 0.76s
+database : Mount /database in tmpfs to store MariaDB ------------------------------------------------ 0.76s
+chrony : Restart chrony ----------------------------------------------------------------------------- 0.74s
+registry : Checking rbd maps ------------------------------------------------------------------------ 0.72s
+common : Mount /run --------------------------------------------------------------------------------- 0.67s
+common : Mount /run --------------------------------------------------------------------------------- 0.67s
+sysbench : Create the /sysbench directory for storing results --------------------------------------- 0.66s
+sysbench : Create the /sysbench directory for storing results --------------------------------------- 0.65s
+sysbench : Create the /sysbench directory for storing results --------------------------------------- 0.63s
+registry : Checking rbd maps ------------------------------------------------------------------------ 0.63s
+common : Mount /run --------------------------------------------------------------------------------- 0.61s
+registry : include ---------------------------------------------------------------------------------- 0.19s
+sysbench : include ---------------------------------------------------------------------------------- 0.18s
+registry : set_fact --------------------------------------------------------------------------------- 0.17s
+database : include ---------------------------------------------------------------------------------- 0.17s
+registry : include ---------------------------------------------------------------------------------- 0.17s
+registry : include ---------------------------------------------------------------------------------- 0.17s
+registry : include ---------------------------------------------------------------------------------- 0.15s
+registry : include ---------------------------------------------------------------------------------- 0.11s
+registry : include ---------------------------------------------------------------------------------- 0.11s
+registry : include ---------------------------------------------------------------------------------- 0.11s
+registry : include ---------------------------------------------------------------------------------- 0.11s
+chrony : include ------------------------------------------------------------------------------------ 0.11s
+registry : include ---------------------------------------------------------------------------------- 0.11s
+registry : include ---------------------------------------------------------------------------------- 0.11s
+registry : include ---------------------------------------------------------------------------------- 0.11s
+registry : include ---------------------------------------------------------------------------------- 0.11s
+sysbench : include ---------------------------------------------------------------------------------- 0.10s
+registry : include ---------------------------------------------------------------------------------- 0.10s
+registry : include ---------------------------------------------------------------------------------- 0.10s
+registry : include ---------------------------------------------------------------------------------- 0.10s
+registry : include ---------------------------------------------------------------------------------- 0.10s
+grafana : include ----------------------------------------------------------------------------------- 0.10s
+database : include ---------------------------------------------------------------------------------- 0.09s
+common : include ------------------------------------------------------------------------------------ 0.09s
+influxdb : include ---------------------------------------------------------------------------------- 0.09s
+registry : include ---------------------------------------------------------------------------------- 0.09s
+collectd : include ---------------------------------------------------------------------------------- 0.09s
+registry : include ---------------------------------------------------------------------------------- 0.09s
+sysbench : include ---------------------------------------------------------------------------------- 0.09s
+registry : include ---------------------------------------------------------------------------------- 0.09s
+grafana : include ----------------------------------------------------------------------------------- 0.09s
+cadvisor : include ---------------------------------------------------------------------------------- 0.09s
+sysbench : include ---------------------------------------------------------------------------------- 0.06s
+{'code': 0, 'result': [{u'ecotype-23.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 4, 'ok': 27, 'changed': 17, 'failures': 0}}, {u'ecotype-24.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 5, 'ok': 20, 'changed': 13, 'failures': 0}}, {u'ecotype-25.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 3, 'ok': 33, 'changed': 22, 'failures': 0}}, {u'ecotype-22.nantes.grid5000.fr': {'unreachable': 0, 'skipped': 5, 'ok': 20, 'changed': 13, 'failures': 0}}], 'playbook': '/home/mchardet/juice/ansible/scaffolding.yml'}
+INFO:enoslib.task:- Task run_ansible finished -
+INFO:enoslib.task:- Task prepare finished -
+ 
