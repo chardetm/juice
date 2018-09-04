@@ -6,6 +6,10 @@
     fstype: tmpfs
     state: mounted
     opts: size=16G
+    
+- name: Pull the MariaDB container
+  docker_image:
+      name: "mariadb"
 
 - name: Start the MariaDB container
   docker_container:

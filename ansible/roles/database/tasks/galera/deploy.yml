@@ -20,6 +20,10 @@
   template:
     src: mariadb-galera.conf.j2
     dest: /database/mysql.conf.d/mysql_server.cnf
+    
+- name: Pull the MariaDB container
+  docker_image:
+      name: "mariadb"
 
 - name: Start the MariaDB-Galera first container
   docker_container:
